@@ -6,11 +6,12 @@ req = requests.get("https://www.bitstamp.net/api/v2/ticker/btceur/")
 
 content = req.content.decode("utf-8")
 
-loaded1 = json.loads(content)
+data = json.loads(content)
 
-btc = loaded1['last']
+btc = data['last']
 
-timestampFloat = float(loaded1['timestamp'])
+timestamp = data['timestamp']
+timestampFloat = float(timestamp)
 
 time = datetime.datetime.fromtimestamp(timestampFloat).strftime('%H:%M:%S, %Y-%m-%d')
 
